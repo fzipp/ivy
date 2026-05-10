@@ -22,8 +22,8 @@ func setBigRatFromFloatString(c Context, s string) (br BigRat, err error) {
 	// Be safe: Verify that it is floating-point, because otherwise
 	// we need to honor arbitrary ibase.
 	if !strings.ContainsAny(s, ".eEpP") {
-		// Most likely a number like "08".
-		return BigRat{}, fmt.Errorf("bad number syntax: %q", s)
+		// Most likely a number like "08", or perhaps nothing (see scan.go).
+		return BigRat{}, fmt.Errorf("bad number syntax")
 	}
 	base := 0
 	if c != nil { // Happens during const.go initialization, fixing would create import cycle.

@@ -452,6 +452,9 @@ func lexComplex(l *Scanner) stateFn {
 		return fn
 	}
 	if !l.accept("j") {
+		// Might be empty. We could produce an error here but that interferes
+		// with our relaxed scanning in parse/special.go. So return the empty
+		// string, call it a number, and let the number parser generate the error.
 		return l.emit(Number)
 	}
 	ok, fn = acceptRational(l, !jAllowed)
