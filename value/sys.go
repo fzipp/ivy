@@ -10,6 +10,7 @@ import (
 	"math"
 	"math/big"
 	"os"
+	"runtime/debug"
 	"time"
 
 	"robpike.io/ivy/config"
@@ -40,6 +41,7 @@ const sysHelp = `
               element is the time zone in which the other values apply:
                 year month day hour minute second seconds-east-of-UTC
 "trace" args: print a stack trace followed by the arguments
+"version":    print the version ivy
 "write" args: print the left argument to the file named by the right
 
 The following commands also have a binary form that sets the value
@@ -239,6 +241,14 @@ var sys1 = map[string]func(conf *config.Config) Value{
 	},
 	"time": func(conf *config.Config) Value {
 		return timeVec(time.Now().In(conf.Location()))
+	},
+	"version": func(conf *config.Config) Value {
+		if build, ok := debug.ReadBuildInfo(); ok {
+			return newCharVector(build.Main.Version)
+		} else {
+			return newCharVector("unknown")
+		}
+
 	},
 }
 

@@ -416,7 +416,7 @@ input.
 	respectively. Base 0 allows C-style input: decimal, with 037 being
 	octal, 0b10 being binary and 0x10 being hexadecimal. Bases above
 	16 are disallowed. To output floats, rationals, and large integers,
-	base must be one of 0 2 8 10 16. In non-decimal bases, floats are
+	base must be one of 0 2 8 10 16. In base 2, 8, or 16, floats are
 	represented in exponential format with the mantissa in the range
 	[½, 1) (or zero) in the specified base and the exponent a power
 	of two, in decimal and introduced by a &apos;p&apos; or &apos;P&apos; character.

@@ -438,7 +438,7 @@ var helpLines = []string{
 	"\t\trespectively. Base 0 allows C-style input: decimal, with 037 being",
 	"\t\toctal, 0b10 being binary and 0x10 being hexadecimal. Bases above",
 	"\t\t16 are disallowed. To output floats, rationals, and large integers,",
-	"\t\tbase must be one of 0 2 8 10 16. In non-decimal bases, floats are",
+	"\t\tbase must be one of 0 2 8 10 16. In base 2, 8, or 16, floats are",
 	"\t\trepresented in exponential format with the mantissa in the range",
 	"\t\t[½, 1) (or zero) in the specified base and the exponent a power",
 	"\t\tof two, in decimal and introduced by a 'p' or 'P' character.",
